@@ -12,10 +12,18 @@ const Command = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive>
 >(({ className, ...props }, ref) => (
+  // <CommandPrimitive
+  //   ref={ref}
+  //   className={cn(
+  //     'flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground',
+  //     className,
+  //   )}
+  //   {...props}
+  // />
   <CommandPrimitive
     ref={ref}
     className={cn(
-      'flex h-full w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground',
+      'flex h-[1000px] w-full flex-col overflow-hidden rounded-md bg-popover text-popover-foreground', // Updated height here
       className,
     )}
     {...props}
@@ -63,9 +71,17 @@ const CommandList = React.forwardRef<
   React.ElementRef<typeof CommandPrimitive.List>,
   React.ComponentPropsWithoutRef<typeof CommandPrimitive.List>
 >(({ className, ...props }, ref) => (
+  // <CommandPrimitive.List
+  //   ref={ref}
+  //   className={cn('max-h-[300px] overflow-y-auto overflow-x-hidden', className)}
+  //   {...props}
+  // />
   <CommandPrimitive.List
     ref={ref}
-    className={cn('max-h-[300px] overflow-y-auto overflow-x-hidden', className)}
+    className={cn(
+      'max-h-[1000px] overflow-y-auto overflow-x-hidden',
+      className,
+    )} // Increased max height
     {...props}
   />
 ));
