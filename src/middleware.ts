@@ -1,13 +1,13 @@
 // import type { NextRequest } from "next/server";
 import { NextRequest, NextResponse } from 'next/server';
 
-export function middleware(req:NextRequest) {
+export function middleware(req: NextRequest) {
   // const token = req.cookies.get("accessToken")?.value;
 
   const { pathname } = req.nextUrl.clone();
 
-  if (pathname === "/") {
-    return NextResponse.redirect(new URL("/TribalHealth", req.url));
+  if (pathname === '/') {
+    return NextResponse.redirect(new URL('/TribalHealth', req.url));
   }
   // }
   // const publicRoutes = ["/login", "/signup"];
