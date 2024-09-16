@@ -1,9 +1,9 @@
-import StaffManagement from '@/views/Authentication/TribalHealth/StaffManagement';
+import StaffManagementView from '@/views/Authentication/TribalHealth/StaffManagement';
 
-export default function () {
+export default function StaffManagement() {
   return (
     <>
-      <StaffManagement />
+      <StaffManagementView />
     </>
   );
 }

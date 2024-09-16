@@ -1,9 +1,9 @@
-import Dashboard from '@/views/Authentication/TribalHealth/Dashboard';
+import DashboardView from '@/views/Authentication/TribalHealth/Dashboard';
 
-export default function () {
+export default function Dashboard() {
   return (
     <>
-      <Dashboard />
+      <DashboardView />
     </>
   );
 }

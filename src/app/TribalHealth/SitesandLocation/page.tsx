@@ -1,9 +1,9 @@
-import SitesandLocation from '@/views/Authentication/TribalHealth/SitesandLocation';
+import SitesandLocationView from '@/views/Authentication/TribalHealth/SitesandLocation';
 
-export default function () {
+export default function SitesandLocation() {
   return (
     <>
-      <SitesandLocation />
+      <SitesandLocationView />
     </>
   );
 }

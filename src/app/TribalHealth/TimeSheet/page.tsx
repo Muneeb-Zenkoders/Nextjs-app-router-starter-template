@@ -1,9 +1,9 @@
-import TimeSheet from '@/views/Authentication/TribalHealth/TimeSheet';
+import TimeSheetView from '@/views/Authentication/TribalHealth/TimeSheet';
 
-export default function () {
+export default function TimeSheet() {
   return (
     <>
-      <TimeSheet />
+      <TimeSheetView />
     </>
   );
 }

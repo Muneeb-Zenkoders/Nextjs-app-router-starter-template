@@ -1,9 +1,9 @@
-import ShiftSwaps from '@/views/Authentication/TribalHealth/ShiftSwaps';
+import ShiftSwapsView from '@/views/Authentication/TribalHealth/ShiftSwaps';
 
-export default function () {
+export default function ShiftSwaps() {
   return (
     <>
-      <ShiftSwaps />
+      <ShiftSwapsView />
     </>
   );
 }
