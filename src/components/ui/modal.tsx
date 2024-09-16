@@ -1,7 +1,7 @@
 'use client';
 
 import React from 'react';
-import { Formik, Field, Form, ErrorMessage } from 'formik';
+import { Formik, Field, Form, ErrorMessage, useFormikContext } from 'formik';
 import { ModalProps } from '@/types/Interfaces/userData';
 import { validationSchema } from '@/schema/login.schema';
 import { StateProps } from '@/types/Interfaces/userData';
@@ -53,7 +53,9 @@ const Modal = ({
               start: new Date(values.date + 'T' + values.start),
               end: new Date(values.date + 'T' + values.end),
             };
-
+            {
+              console.log(values);
+            }
             addEvent(newEvent); // Add the event to the calendar
             onClose(); // Close the modal on successful submission
           }}
