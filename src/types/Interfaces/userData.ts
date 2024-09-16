@@ -21,4 +21,3 @@ export interface IEvent {
   start: Date;
   end: Date;
 }
-
