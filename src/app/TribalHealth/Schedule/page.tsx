@@ -1,7 +1,7 @@
 import { StateProps } from '@/types/Interfaces/userData';
 import ScheduleView from '@/views/Authentication/TribalHealth/Schedule';
 
-export default async function Schedule () {
+export default async function Schedule() {
   const data: StateProps = await fetchUser();
   return (
     <>

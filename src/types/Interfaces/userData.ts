@@ -12,9 +12,9 @@ export interface ModalProps {
   onClose: () => void;
   userData: StateProps;
 }
-export interface IeventInfo{
+export interface IeventInfo {
   timeText: string;
-  event:{title:string}
+  event: { title: string };
 }
 export interface IEvent {
   title: string;
