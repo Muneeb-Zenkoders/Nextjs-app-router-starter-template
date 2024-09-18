@@ -56,7 +56,6 @@ const Modal = ({
               employeeName: values.staffMember,
               profilePicture: selectedStaff(values.staffMember).picture.large,
             };
-
             addEvent(newEvent); // Add the event to the calendar
             onClose(); // Close the modal on successful submission
           }}
