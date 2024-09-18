@@ -52,10 +52,11 @@ const Modal = ({
               title: `${values.job} - ${values.staffMember}`,
               start: new Date(values.date + 'T' + values.start),
               end: new Date(values.date + 'T' + values.end),
+              site: values.site,
+              employeeName: values.staffMember,
+              profilePicture: selectedStaff(values.staffMember).picture.large,
             };
-            {
-              console.log(values);
-            }
+
             addEvent(newEvent); // Add the event to the calendar
             onClose(); // Close the modal on successful submission
           }}

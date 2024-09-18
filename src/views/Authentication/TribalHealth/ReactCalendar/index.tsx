@@ -1,31 +1,30 @@
 'use client';
-// import React, { useEffect } from 'react';
+import React from 'react';
 import FullCalendar from '@fullcalendar/react';
 import dayGridPlugin from '@fullcalendar/daygrid';
 import timeGridPlugin from '@fullcalendar/timegrid';
 import interactionPlugin from '@fullcalendar/interaction';
-import { IEvent, IeventInfo } from '@/types/Interfaces/userData';
+import { IEvent } from '@/types/Interfaces/userData';
 
-const ReactCalendar = ({ events }: { events: IEvent[] }) => {
-  // useEffect(() => {
-  //   const dayHeaderCells = document.querySelectorAll('.fc-col-header-cell');
-  //   dayHeaderCells.forEach(cell => {
-  //     (cell as HTMLElement).style.width = '200px'; // Adjust the width as needed
-  //   });
-  //   // Adjust cell heights after the calendar is rendered
-  //   const dayCells = document.querySelectorAll('.fc-daygrid-day');
-  //   dayCells.forEach(cell => {
-  //     (cell as HTMLElement).style.height = '500px'; // Adjust the height as needed
-  //     (cell as HTMLElement).style.width = '200px';
-  //   });
-  // }, []);
-
+const ReactCalendar = ({
+  events,
+  onEventClick,
+}: {
+  events: IEvent[];
+  onEventClick: (event: IEvent) => void;
+}) => {
   return (
     <div>
       <FullCalendar
         plugins={[dayGridPlugin, timeGridPlugin, interactionPlugin]}
         initialView='dayGridMonth'
-        events={events}
+        events={events.map(event => ({
+          ...event,
+          backgroundColor: event.isDeleted ? 'red' : '#1E40AF', // Use red for deleted events
+          borderColor: event.isDeleted ? 'red' : '#1E40AF', // Use red border for deleted events
+          textColor: event.isDeleted ? 'white' : 'black', // Use white text for deleted events
+          editable: !event.isDeleted, // Make deleted events non-editable
+        }))}
         eventContent={renderEventContent}
         headerToolbar={{
           start: 'today,prev,next',
@@ -33,8 +32,25 @@ const ReactCalendar = ({ events }: { events: IEvent[] }) => {
           end: 'dayGridMonth,timeGridWeek,timeGridDay',
         }}
         eventDidMount={info => {
-          // Apply styles to the event element
-          info.el.style.height = '100px'; // Adjust the height as needed
+          info.el.style.height = '100px';
+        }}
+        eventClick={info => {
+          const eventData: IEvent = {
+            title: info.event.title,
+            start: info.event.start as Date,
+            end: info.event.end as Date,
+            site: info.event.extendedProps.site as string,
+            actualStart: info.event.extendedProps.actualStart as string,
+            actualEnd: info.event.extendedProps.actualEnd as string,
+            profilePicture: info.event.extendedProps.profilePicture as string,
+            employeeName: info.event.extendedProps.employeeName as string,
+            isDeleted: info.event.extendedProps.isDeleted as boolean,
+          };
+
+          // Only handle event clicks if the event is not deleted
+          if (!eventData.isDeleted) {
+            onEventClick(eventData);
+          }
         }}
       />
     </div>
@@ -43,11 +59,23 @@ const ReactCalendar = ({ events }: { events: IEvent[] }) => {
 
 export default ReactCalendar;
 
-function renderEventContent(eventInfo: IeventInfo) {
+function renderEventContent(eventInfo: any) {
   return (
-    <>
-      <b>{eventInfo.timeText}</b>
-      <i>{eventInfo.event.title}</i>
-    </>
+    <div
+      className={`flex items-center rounded-lg shadow p-2 overflow-hidden ${
+        eventInfo.event.backgroundColor === 'red' ? 'opacity-50' : ''
+      }`}
+      style={{ border: `4px solid ${eventInfo.event.borderColor}` }}
+    >
+      <div
+        className={`w-1.5 h-8 rounded-l-lg ${eventInfo.event.backgroundColor === 'red' ? 'bg-red-800' : 'bg-blue-800'}`}
+      ></div>
+      <div className='flex items-center ml-2 flex-1 truncate'>
+        <span className='text-gray-700 text-sm font-medium whitespace-nowrap overflow-hidden'>
+          {eventInfo.timeText} {eventInfo.event.title}
+        </span>
+        <i className='fas fa-copy text-blue-800 text-xl ml-2'></i>
+      </div>
+    </div>
   );
 }

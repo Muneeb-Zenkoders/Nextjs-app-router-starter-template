@@ -8,6 +8,9 @@ importers:
 
   .:
     dependencies:
+      '@fullcalendar/core':
+        specifier: ^6.1.15
+        version: 6.1.15
       '@fullcalendar/daygrid':
         specifier: ^6.1.15
         version: 6.1.15(@fullcalendar/core@6.1.15)
@@ -47,6 +50,9 @@ importers:
       '@tanstack/react-query-devtools':
         specifier: ^5.17.9
         version: 5.55.4(@tanstack/react-query@5.55.4(react@18.3.1))(react@18.3.1)
+      '@types/fullcalendar':
+        specifier: ^3.8.0
+        version: 3.8.0
       '@types/next':
         specifier: ^9.0.0
         version: 9.0.0(@babel/core@7.25.2)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -390,6 +396,16 @@ packages:
 
   '@fullcalendar/interaction@6.1.15':
     resolution: {integrity: sha512-DOTSkofizM7QItjgu7W68TvKKvN9PSEEvDJceyMbQDvlXHa7pm/WAVtAc6xSDZ9xmB1QramYoWGLHkCYbTW1rQ==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.15
+
+  '@fullcalendar/list@6.1.15':
+    resolution: {integrity: sha512-U1bce04tYDwkFnuVImJSy2XalYIIQr6YusOWRPM/5ivHcJh67Gm8CIMSWpi3KdRSNKFkqBxLPkfZGBMaOcJYug==}
+    peerDependencies:
+      '@fullcalendar/core': ~6.1.15
+
+  '@fullcalendar/multimonth@6.1.15':
+    resolution: {integrity: sha512-sEZY6jbOYkeF9TwhUldG+UUVv+hiPlGkS8zZEgPR7ypcjhipyA03c5rPjx7N6huOHqh6lCMH59zlohLooQRlaw==}
     peerDependencies:
       '@fullcalendar/core': ~6.1.15
 
@@ -1098,6 +1114,10 @@ packages:
 
   '@types/cookie@0.6.0':
     resolution: {integrity: sha512-4Kh9a6B2bQciAhf7FSuMRRkUWecJgJu9nPnx3yzpsfXX/c50REIqpHY4C82bXP90qrLtXtkDxTZosYO3UpOwlA==}
+
+  '@types/fullcalendar@3.8.0':
+    resolution: {integrity: sha512-uxYNAnvH7s3asQjkH8p0K1V4ENMLQDGNmFHWA7/iRZwU13A7RCOvnNoRapEIIRx8hI/+wHWkd4Q9KmpVCQfIEg==}
+    deprecated: This is a stub types definition for FullCalendar (http://arshaw.com/fullcalendar/). FullCalendar provides its own type definitions, so you don\'t need @types/fullcalendar installed!
 
   '@types/hoist-non-react-statics@3.3.5':
     resolution: {integrity: sha512-SbcrWzkKBw2cdwRTwQAswfpB9g9LJWfjtUeW/jvNwbhC8cpmmNYVePa+ncbUe0rGTQ7G3Ff6mYUN2VMfLVr+Sg==}
@@ -2062,6 +2082,9 @@ packages:
     resolution: {integrity: sha512-5xoDfX+fL7faATnagmWPpbFtwh/R77WmMMqqHGS65C3vvB0YHrgF+B1YmZ3441tMj5n63k0212XNoJwzlhffQw==}
     engines: {node: ^8.16.0 || ^10.6.0 || >=11.0.0}
     os: [darwin]
+
+  fullcalendar@6.1.15:
+    resolution: {integrity: sha512-CFnh1yswjRh9puJVDk8VGwTlyZ6eXxr4qLI7QCA0+bozyAm+BluP1US5mOtgk0gEq23nQxGSNDoBvAraz++saQ==}
 
   function-bind@1.1.2:
     resolution: {integrity: sha512-7XHNxH7qX9xG5mIwxkhumTox/MIRNcOgDrxWsMt2pAr23WHp6MrRlN7FBSFpCpr+oVO0F744iUgR82nJMfG2SA==}
@@ -4072,6 +4095,15 @@ snapshots:
     dependencies:
       '@fullcalendar/core': 6.1.15
 
+  '@fullcalendar/list@6.1.15(@fullcalendar/core@6.1.15)':
+    dependencies:
+      '@fullcalendar/core': 6.1.15
+
+  '@fullcalendar/multimonth@6.1.15(@fullcalendar/core@6.1.15)':
+    dependencies:
+      '@fullcalendar/core': 6.1.15
+      '@fullcalendar/daygrid': 6.1.15(@fullcalendar/core@6.1.15)
+
   '@fullcalendar/react@6.1.15(@fullcalendar/core@6.1.15)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
     dependencies:
       '@fullcalendar/core': 6.1.15
@@ -4676,6 +4708,10 @@ snapshots:
       path-browserify: 1.0.1
 
   '@types/cookie@0.6.0': {}
+
+  '@types/fullcalendar@3.8.0':
+    dependencies:
+      fullcalendar: 6.1.15
 
   '@types/hoist-non-react-statics@3.3.5':
     dependencies:
@@ -5864,6 +5900,15 @@ snapshots:
 
   fsevents@2.3.3:
     optional: true
+
+  fullcalendar@6.1.15:
+    dependencies:
+      '@fullcalendar/core': 6.1.15
+      '@fullcalendar/daygrid': 6.1.15(@fullcalendar/core@6.1.15)
+      '@fullcalendar/interaction': 6.1.15(@fullcalendar/core@6.1.15)
+      '@fullcalendar/list': 6.1.15(@fullcalendar/core@6.1.15)
+      '@fullcalendar/multimonth': 6.1.15(@fullcalendar/core@6.1.15)
+      '@fullcalendar/timegrid': 6.1.15(@fullcalendar/core@6.1.15)
 
   function-bind@1.1.2: {}
 

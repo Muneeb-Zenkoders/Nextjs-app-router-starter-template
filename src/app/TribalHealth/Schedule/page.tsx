@@ -9,6 +9,7 @@ export default async function Schedule() {
     </>
   );
 }
+
 const fetchUser = async () => {
   const userData = await fetch(
     'https://randomuser.me/api/?results=13&nat=us,gb&gender=male',
